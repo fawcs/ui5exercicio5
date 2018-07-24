@@ -1,0 +1,64 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Panel headerText="Painelll" expandable="true" expanded="true" >
+		<content>
+			<Table id="table" items="{ 
+				path: 'produto>/Produtos',
+				sorter : { 
+					path: 'ProductName' 
+					} 
+				}">
+				<headerToolbar>
+					<Toolbar>
+						<SearchField width="100%" search="onSearch" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Product Name"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Quantity"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Extended Price"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Shipper Name"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Shipped Date"/>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Status"/>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onPress">
+						<cells>
+							<ObjectIdentifier title="{produto>ProductName}"/>
+							<ObjectNumber number="{produto>Quantity}"/>
+							<ObjectNumber number="{produto>ExtendedPrice}" unit="R$"/>
+							<Text text="{produto>ShipperName}"/>
+							<Text text="{ path: 'produto>ShipperDate', formatter='.formatter.formatDate' }"/>
+							<Text text="{produto>Status}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Panel>
+</core:FragmentDefinition>

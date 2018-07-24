@@ -1,0 +1,30 @@
+<mvc:View 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="treinamento.ui5.controller.Page2">
+	<Page 
+        title="{i18n>pag2}"
+        showNavButton="true"
+        navButtonPress="onNavPress">
+        <content>
+        	<ObjectHeader
+        		title="{produtoSelecionado>/ProductName}"
+        		number="{
+        			path:'produtoSelecionado>/ExtendedPrice'
+        		}"
+        		numberUnit="$" >
+        		<statuses>
+        			<ObjectStatus 
+        				text = "{produtoSelecionado>/Status}"
+        				state= "{= ${produtoSelecionado>/Status} === 'A' ? 'Success' : 'Error'}" />
+        		</statuses>
+        		<attributes>
+        			<ObjectAttribute text="{produtoSelecionado>ShipperName }"/>
+        			<ObjectAttribute text="{ 
+        				path: 'produtoSelecionado>ShipperDate', 
+        				formatter: '.formatter.formatDate'}"/>   
+        		</attributes>     			
+        	</ObjectHeader>
+        </content>
+	</Page>
+</mvc:View>
